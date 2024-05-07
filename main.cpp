@@ -8,6 +8,60 @@
 #include "Reservation.h"
 #include "Annulation.h"
 
+// Global arrays for prices
+float prix1d1[] = {243.0f, 299.0f, 364.0f};
+float prix1d2[] = {115.0f, 143.0f, 172.0f};
+float prix1d3[] = {93.0f, 116.0f, 139.0f};
+float prix2HorsPointe[] = {149.0f, 189.0f, 224.0f};
+float prix2Standard[] = {224.0f, 243.0f, 299.0f};
+float prix2Pointe[] = {299.0f, 364.0f};
+
+// Function to calculate price based on trajet, class, and level
+float calculatePrice(const std::string& trajet, bool isFirstClass, int level) {
+    // Table of prices for trajets
+    float prixTangerCasablanca[] = {149.0f, 189.0f, 224.0f, 243.0f, 299.0f, 364.0f};
+    float prixTangerRabat[] = {115.0f, 143.0f, 172.0f, 187.0f, 234.0f, 281.0f};
+    float prixTangerKenitra[] = {93.0f, 116.0f, 139.0f, 162.0f, 199.0f, 244.0f};
+
+    // Select appropriate trajet prices
+    float* prixTrajet;
+    if (trajet == "Tanger-Casablanca") {
+        prixTrajet = prixTangerCasablanca;
+    } else if (trajet == "Tanger-Rabat") {
+        prixTrajet = prixTangerRabat;
+    } else if (trajet == "Tanger-Kenitra") {
+        prixTrajet = prixTangerKenitra;
+    } else {
+        // Invalid trajet, return default price
+        return 0.0f;
+    }
+
+    // Select appropriate class prices
+    float* prixClass;
+    if (isFirstClass) {
+        if (level == 1) {
+            prixClass = prix1d1;
+        } else if (level == 2) {
+            prixClass = prix1d2;
+        } else if (level == 3) {
+            prixClass = prix1d3;
+        } else {
+            // Invalid level, return default price
+            return 0.0f;
+        }
+    } else {
+        prixClass = prix2HorsPointe; // Default to hors pointe for second class
+        if (level == 2) {
+            prixClass = prix2Standard;
+        } else if (level == 3) {
+            prixClass = prix2Pointe;
+        }
+    }
+
+    // Calculate and return the price
+    return prixTrajet[level - 1];
+}
+
 // Function to save reservation details to reservations.txt
 void enregistrerReservation(const Reservation& reservation) {
     std::ofstream fichier("reservations.txt", std::ios_base::app);
@@ -51,18 +105,15 @@ int main() {
     // Create a passenger
     Passager passager("zakaria", "JAMMOUD", "zakaria.jammoud@gmail.com", "Autre");
 
-    // Create a reservation
-    Reservation reservation(123, "Al Atlas", "Tanger", "Casablanca", "Fenêtre", passager, 189.0, time(nullptr));
+    // Test 1: Tanger-Casablanca, 2nd class standard
+    float priceTest1 = calculatePrice("Tanger-Casablanca", false, 2);
+    Reservation reservation1(123, "Al Atlas", "Tanger", "Casablanca", "Fenêtre", passager, priceTest1, time(nullptr));
+    enregistrerReservation(reservation1);
 
-    // Save reservation details to reservations.txt
-    enregistrerReservation(reservation);
-
-    // Create an annulation
-    Annulation annulation(123, "Al Atlas", "Tanger", "Casablanca", "Fenêtre", 12, passager, 50.0, time(nullptr));
-
-    // Save annulation details to annulations.txt
-    enregistrerAnnulation(annulation);
+    // Test 2: Tanger-Kenitra, 1st class medium demand
+    float priceTest2 = calculatePrice("Tanger-Kenitra", true, 2);
+    Reservation reservation2(123, "Al Atlas", "Tanger", "Kenitra", "Fenêtre", passager, priceTest2, time(nullptr));
+    enregistrerReservation(reservation2);
 
     return 0;
 }
-
