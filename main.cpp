@@ -49,16 +49,16 @@ int main() {
     Train train(123, "Al Atlas", "Casablanca", "Marrakech", 5, 2);
 
     // Create a passenger
-    Passager passager("El", "Ahmed", "ahmed.el@example.com", "Autre");
+    Passager passager("zakaria", "JAMMOUD", "zakaria.jammoud@gmail.com", "Autre");
 
     // Create a reservation
-    Reservation reservation(123, "Al Atlas", "Casablanca", "Marrakech", "Fenêtre", passager, 100.0, time(nullptr));
+    Reservation reservation(123, "Al Atlas", "Tanger", "Casablanca", "Fenêtre", passager, 189.0, time(nullptr));
 
     // Save reservation details to reservations.txt
     enregistrerReservation(reservation);
 
     // Create an annulation
-    Annulation annulation(123, "Al Atlas", "Casablanca", "Marrakech", "Fenêtre", 12, passager, 50.0, time(nullptr));
+    Annulation annulation(123, "Al Atlas", "Tanger", "Casablanca", "Fenêtre", 12, passager, 50.0, time(nullptr));
 
     // Save annulation details to annulations.txt
     enregistrerAnnulation(annulation);

@@ -1,9 +1,9 @@
 Numéro de train : 123
 Nom du train : Al Atlas
-Point d'embarquement : Casablanca
-Point de destination : Marrakech
+Point d'embarquement : Tanger
+Point de destination : Casablanca
 Classe de siège : Fenêtre
-Date d'annulation : Tue May  7 15:18:46 2024
-Nom du passager : El Ahmed
+Date d'annulation : Tue May  7 16:03:56 2024
+Nom du passager : zakaria JAMMOUD
 Montant à récupérer : 50 DH
 ------------------------------------
