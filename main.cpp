@@ -102,7 +102,7 @@ int main() {
     // Create a train
     Train train(123, "Al Atlas", "Casablanca", "Marrakech", 5, 2);
 
-    // Create a passenger
+    // zakaria
     Passager passager("zakaria", "JAMMOUD", "zakaria.jammoud@gmail.com", "Autre");
 
     // Test 1: Tanger-Casablanca, 2nd class standard
@@ -114,6 +114,13 @@ int main() {
     float priceTest2 = calculatePrice("Tanger-Kenitra", true, 2);
     Reservation reservation2(123, "Al Atlas", "Tanger", "Kenitra", "Fenêtre", passager, priceTest2, time(nullptr));
     enregistrerReservation(reservation2);
+   
+    // fatima
+    Passager fatima("Fatima", "EL AMRANI", "fatima.elamrani@example.com", "Autre");
+
+    float priceTest3 = calculatePrice("Tanger-Rabat", true, 3);
+    Reservation reservation3(123, "Al Atlas", "Tanger", "Rabat", "Fenêtre", fatima, priceTest3, time(nullptr));
+    enregistrerReservation(reservation3);
 
     return 0;
 }

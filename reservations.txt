@@ -25,3 +25,30 @@ Date de réservation : Tue May  7 16:14:01 2024
 Nom du passager : zakaria JAMMOUD
 Montant à payer : 116 DH
 ------------------------------------
+Numéro de train : 123
+Nom du train : Al Atlas
+Point d'embarquement : Tanger
+Point de destination : Casablanca
+Classe de siège : Fenêtre
+Date de réservation : Tue May  7 16:17:30 2024
+Nom du passager : zakaria JAMMOUD
+Montant à payer : 189 DH
+------------------------------------
+Numéro de train : 123
+Nom du train : Al Atlas
+Point d'embarquement : Tanger
+Point de destination : Kenitra
+Classe de siège : Fenêtre
+Date de réservation : Tue May  7 16:17:30 2024
+Nom du passager : zakaria JAMMOUD
+Montant à payer : 116 DH
+------------------------------------
+Numéro de train : 123
+Nom du train : Al Atlas
+Point d'embarquement : Tanger
+Point de destination : Rabat
+Classe de siège : Fenêtre
+Date de réservation : Tue May  7 16:17:30 2024
+Nom du passager : Fatima EL AMRANI
+Montant à payer : 172 DH
+------------------------------------
